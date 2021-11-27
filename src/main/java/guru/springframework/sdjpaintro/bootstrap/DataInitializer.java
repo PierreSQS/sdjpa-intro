@@ -2,14 +2,16 @@ package guru.springframework.sdjpaintro.bootstrap;
 
 import guru.springframework.sdjpaintro.domain.Book;
 import guru.springframework.sdjpaintro.repositories.BookRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by jt on 6/12/21.
+ * modified by Pierrot on 11/26/2021.
  */
-@Profile({"local", "default"})
+@Slf4j
+@Profile({"local","default"})
 @Component
 public class DataInitializer implements CommandLineRunner {
 
@@ -20,18 +22,23 @@ public class DataInitializer implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         bookRepository.deleteAll();
 
         Book bookDDD = new Book("Domain Driven Design", "123", "RandomHouse");
+
+        log.info("Id: " + bookDDD.getId() );
+
         Book savedDDD = bookRepository.save(bookDDD);
 
-        Book bookSIA = new Book("Spring In Action", "234234", "Oriely");
-        Book savedSIA = bookRepository.save(bookSIA);
+        log.info("Id: " + savedDDD.getId() );
+
+        Book bookSIA = new Book("Spring In Action", "234234", "Oreilly");
+        bookRepository.save(bookSIA);
 
         bookRepository.findAll().forEach(book -> {
-            System.out.println("Book Id: " + book.getId());
-            System.out.println("Book Title: " + book.getTitle());
+            log.info("Book Id: " + book.getId());
+            log.info("Book Title: " + book.getTitle());
         });
 
     }
