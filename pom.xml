@@ -48,6 +48,33 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <!--start with basic information to get Liquibase plugin:
+                include <groupId>, <artifactID>, and <version> elements-->
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>4.13.0</version>
+                <configuration>
+                    <!--set values for Liquibase properties and settings
+                    for example, the location of a properties file to use-->
+                    <url>jdbc:mysql://localhost:3307/jt_hibernate_jpa_bookdb?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC
+                    </url>
+                    <username>bookadmin</username>
+                    <password>bookadmin</password>
+                    <outputChangeLogFile>changelog.xml</outputChangeLogFile>
+                    <changeSetAuthor>Pierrot</changeSetAuthor>
+                    <changelogSchemaName>bookdb</changelogSchemaName>
+                </configuration>
+                <dependencies>
+                    <!--set up any dependencies for Liquibase to function in your
+                    environment for example, a database-specific plugin-->
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
 
