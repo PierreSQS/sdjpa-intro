@@ -25,7 +25,7 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) {
         bookRepository.deleteAll();
 
-        Book bookDDD = new Book("Domain Driven Design", "123", "RandomHouse");
+        Book bookDDD = new Book("Domain Driven Design", "123", "RandomHouse",null);
 
         log.info("Id: " + bookDDD.getId() );
 
@@ -33,7 +33,7 @@ public class DataInitializer implements CommandLineRunner {
 
         log.info("Id: " + savedDDD.getId() );
 
-        Book bookSIA = new Book("Spring In Action", "234234", "Oreilly");
+        Book bookSIA = new Book("Spring In Action", "234234", "Oreilly",null);
         bookRepository.save(bookSIA);
 
         bookRepository.findAll().forEach(book -> {
