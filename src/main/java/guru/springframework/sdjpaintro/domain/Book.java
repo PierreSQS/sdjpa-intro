@@ -19,14 +19,14 @@ public class Book {
     private String title;
     private String isbn;
     private String publisher;
-    private Long authorID;
+    private Long authorId;
 
     public Book() {
 
     }
 
-    public Book(String title, String isbn, String publisher, Long authorID) {
-        this.authorID = authorID;
+    public Book(String title, String isbn, String publisher, Long authorId) {
+        this.authorId = authorId;
         this.title = title;
         this.isbn = isbn;
         this.publisher = publisher;
