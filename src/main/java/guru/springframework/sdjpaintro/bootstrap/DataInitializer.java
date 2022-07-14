@@ -23,6 +23,7 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
+        log.info("################ Cleaning the Books Data ################");
         bookRepository.deleteAll();
 
         Book bookDDD = new Book("Domain Driven Design", "123", "RandomHouse",null);
