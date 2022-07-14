@@ -3,17 +3,5 @@
                    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
                    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
-    <changeSet  author="Pierrot"  id="liquid-intellij">
-        <sql dbms="!h2, mysql"
-             endDelimiter="\nGO"
-             splitStatements="true"
-             stripComments="true">create table author (
-            id bigint not null,
-            first_name varchar(255),
-            last_name varchar(255),
-            primary key (id)
-            ) engine=InnoDB;
-            <comment>Table for the Author</comment>
-        </sql>
-    </changeSet>
+
 </databaseChangeLog>
